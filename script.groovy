@@ -10,5 +10,11 @@ def deployApp() {
      echo 'deplying the application...'    
      echo "deploying version ${params.VERSION}" 
     } 
+def buildFrontend() {
+    echo 'executing yarn...' 
+    }
+def buildBackend() {
+    echo 'executing gradle...' 
+    } 
 return this
 
