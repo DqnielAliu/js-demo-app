@@ -37,6 +37,7 @@ pipeline {
             steps {
                 script {
                     gv.deployApp()
+                    gv.buildFrontend()
                 }
             }
         }
