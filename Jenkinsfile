@@ -18,6 +18,8 @@ pipeline {
             steps {
                 script {
                     gv.buildApp()
+                    gv.buildFrontend()
+                  
                 }
             }
         }
