@@ -24,11 +24,8 @@ pipeline {
         stage("test") {
             when {
                 expression {
-<<<<<<< HEAD
+
                     params.exexcuteTests
-=======
-                    params.executeTests
->>>>>>> a0c9405fb1b79e6c730c4be873927ac1e204fa9f
                 }
             }
             steps {
@@ -37,9 +34,7 @@ pipeline {
                 }
             }
         }
-<<<<<<< HEAD
-        
-=======
+
         stage("deploy") {
             steps {
                 script {
@@ -47,6 +42,5 @@ pipeline {
                 }
             }
         }
->>>>>>> a0c9405fb1b79e6c730c4be873927ac1e204fa9f
     }   
 }
