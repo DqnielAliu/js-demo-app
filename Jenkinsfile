@@ -33,18 +33,21 @@ pipeline {
                 }
             }
         }
+
         stage("run Frontend") {
             steps {
                 script {
                     gv.runFrontend()
                 }
             }
+        }
         stage("run Backend") {
             steps {
                 script {
                     gv.runBackend()
                 }
             }
+        }
         stage("deploy") {
             steps {
                 script {
