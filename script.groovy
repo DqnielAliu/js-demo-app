@@ -16,10 +16,17 @@ def deployApp() {
     } 
 
 def runFrontend() {
-    echo 'executing yarn...' 
+    echo 'executing yarn...'
+    nodejs('NodeJS-10_17_0'){
+        sh 'yarn install'
+        //sh 'yarn build'
+    } 
     }
 def runBackend() {
     echo 'executing gradle...' 
+    withGradle(){
+        sh './gradlew -v '
+    }
     }
 
 return this
