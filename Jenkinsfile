@@ -40,13 +40,14 @@ pipeline {
                 }
             }
         }
-        stage("run Frontend") {
-            steps {
-                script {
-                    gv.runFrontend()
-                }
-            }
-        }
+        // stage("run Frontend") {
+        //     steps {
+        //         script {
+        //             gv.runFrontend()
+        //         }
+        //     }
+        // }
+        // The code below is commented out bcos I don't have gradle installed
         // stage("run Backend") {
         //     steps {
         //         script {

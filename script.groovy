@@ -13,7 +13,7 @@ def deployApp() {
      echo 'deplying the application...'
      echo 're-deplying the application...'    
      echo "deploying version ${params.VERSION}" 
-    //  runFrontend()
+     runFrontend()
     //  runBackend()
     } 
 
