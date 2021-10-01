@@ -1,6 +1,7 @@
 
 def buildApp() {
-    echo 'building the application...' 
+    echo 'building the application...'
+    echo ' checking periodic trigger' 
     }
 def testApp() {
      echo 'testing the application...'
