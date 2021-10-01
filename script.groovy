@@ -18,15 +18,15 @@ def deployApp() {
     } 
 
 def runFrontend() {
-    echo 'executing yarn...'
     nodejs('NodeJS-10_17_0'){
         sh 'yarn install'
+        echo 'executing yarn...'
         //sh 'yarn build'
     } 
     }
-def runBackend() {
-    echo 'executing gradle...' 
+def runBackend() { 
     withGradle(){
+        echo 'executing gradle...'
         sh './gradlew -v '
     }
     }
