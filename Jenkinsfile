@@ -33,7 +33,13 @@ pipeline {
                 }
             }
         }
-
+        stage("deploy") {
+            steps {
+                script {
+                    gv.deployApp()
+                }
+            }
+        }
         stage("run Frontend") {
             steps {
                 script {
@@ -45,13 +51,6 @@ pipeline {
             steps {
                 script {
                     gv.runBackend()
-                }
-            }
-        }
-        stage("deploy") {
-            steps {
-                script {
-                    gv.deployApp()
                 }
             }
         }
