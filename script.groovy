@@ -14,7 +14,7 @@ def deployApp() {
      echo 're-deplying the application...'    
      echo "deploying version ${params.VERSION}" 
      this.runFrontend()
-    //  runBackend()
+     this.runBackend()
     } 
 
 def runFrontend() {
