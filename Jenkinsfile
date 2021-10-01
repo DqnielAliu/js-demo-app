@@ -3,7 +3,7 @@ def gv
 pipeline {
     agent any
     parameters {
-        choice(name: 'VERSION', choices: ['1.1.0', '1.2.0', '1.3.0'], description: 'Version locking')
+        choice(name: 'VERSION', choices: ['1.1.0', '1.2.0', '1.3.0'], description: 'Version locking / version fixing')
         booleanParam(name: 'executeTests', defaultValue: true, description: 'Test trigger')
     }
     stages {
@@ -47,12 +47,12 @@ pipeline {
                 }
             }
         }
-        stage("run Backend") {
-            steps {
-                script {
-                    gv.runBackend()
-                }
-            }
-        }
+        // stage("run Backend") {
+        //     steps {
+        //         script {
+        //             gv.runBackend()
+        //         }
+        //     }
+        // }
     }   
 }
