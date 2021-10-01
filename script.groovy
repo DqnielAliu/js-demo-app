@@ -4,7 +4,7 @@ def buildApp() {
     }
 def testApp() {
      echo 'testing the application...'
-     ls 
+     sh 'ls'
      echo "testing parameter ${params.executeTests}"
      echo 'testing the application...' 
     } 
