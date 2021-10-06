@@ -27,7 +27,7 @@ def runFrontend() {
 def runBackend() { 
     echo 'executing gradle...'
     withGradle(){
-        // sh './gradlew -v '
+        sh './gradlew -v '
     }
     }
 
