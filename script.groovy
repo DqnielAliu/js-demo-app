@@ -22,7 +22,7 @@ def runFrontend() {
     echo 'executing yarn...'
     nodejs('NodeJS-10_17_0'){
         sh 'yarn install'
-        //sh 'yarn build'
+        sh 'yarn build'
     } 
     }
 def runBackend() { 
