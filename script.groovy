@@ -15,7 +15,7 @@ def deployApp() {
      echo "deploying version ${params.VERSION}" 
      this.runFrontend()
     // TODO: #2 Comment this line below until, gradle installation problem is resolveed in Jenkins
-    // this.runBackend()
+    this.runBackend()
     } 
 
 def runFrontend() {
