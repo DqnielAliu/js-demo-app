@@ -16,11 +16,6 @@ def buildFrontend() {
 def buildBackend() {
     echo 'executing gradle...' 
     } 
-def buildFrontend() {
-    echo 'executing yarn...' 
-    }
-def buildBackend() {
-    echo 'executing gradle...' 
-    } 
+ 
 return this
 
