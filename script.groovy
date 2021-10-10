@@ -15,21 +15,19 @@ def deployApp() {
      echo "deploying version ${params.VERSION}" 
      this.runFrontend()
     // TODO: #2 Comment this line below until, gradle installation problem is resolveed in Jenkins
-    this.runBackend()
+    // this.runBackend()
     } 
 
 def runFrontend() {
     echo 'executing yarn...'
     nodejs('NodeJS-10_17_0'){
         sh 'yarn install'
-        // sh 'yarn build'
+        //sh 'yarn build'
     } 
     }
 def runBackend() { 
     echo 'executing gradle...'
-    withGradle(){
         sh './gradlew -v '
-    }
     }
 
 return this
