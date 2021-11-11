@@ -14,20 +14,20 @@ def deployApp() {
      echo 're-deplying the application...'    
      echo "deploying version ${params.VERSION}" 
      this.runFrontend()
-    // TODO: #2 Comment this line below until, gradle installation problem is resolveed in Jenkins
-     this.runBackend()
+    // TODO: #2 Comment this line below until, gradle installation problem is resolved in Jenkins
+    //  this.runBackend()
     } 
 
 def runFrontend() {
     echo 'executing yarn...'
     nodejs('NodeJS-10_17_0'){
         sh 'yarn install'
-        //sh 'yarn build'
     } 
     }
 def runBackend() { 
     echo 'executing gradle...'
         sh './gradlew -v '
+    // for some unexplainable the gradle does not setup
     }
 
 return this
