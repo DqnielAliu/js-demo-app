@@ -4,7 +4,7 @@ pipeline {
     agent any
 
     tools { //Support maven, gradle, and jdk
-        gradle 'Gradle 6-9'
+        gradle 'Gradle7.3'
     }
 
     parameters {
