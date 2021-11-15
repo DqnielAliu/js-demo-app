@@ -1,8 +1,7 @@
 
 def buildApp() {
     echo 'building the application...'
-    echo ' checking periodic trigger'
-    sh 'npm init'
+    echo ' checking periodic trigger' 
     }
 def testApp() {
      echo 'testing the application...'
@@ -20,8 +19,9 @@ def deployApp() {
     } 
 
 def runFrontend() {
-    echo 'executing yarn...'
+    echo 'Executing frontend...'
     nodejs('NodeJS_17.10'){
+        sh 'npm init'
         sh 'yarn build'
         sh 'yarn install'
     } 
