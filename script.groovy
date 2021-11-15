@@ -21,7 +21,7 @@ def deployApp() {
 def runFrontend() {
     echo 'Executing frontend...'
     nodejs('NodeJS_17.10'){
-        sh 'npm init'
+        sh 'npm init -y'
         sh 'yarn build'
         sh 'yarn install'
     } 
