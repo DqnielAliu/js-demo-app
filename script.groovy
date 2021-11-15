@@ -25,6 +25,7 @@ def runFrontend() {
             npm init -y
             yarn run
             yarn install
+            ls
         '''
         
     } 
