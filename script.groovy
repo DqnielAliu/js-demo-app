@@ -21,9 +21,13 @@ def deployApp() {
 def runFrontend() {
     echo 'Executing frontend...'
     nodejs('NodeJS_17.10'){
-        sh 'npm init -y'
-        sh 'yarn run build'
-        sh 'yarn install'
+        sh '''
+            npm init -y
+            yarn run
+            yarn install
+            yarn webpack --config webpack.dev.js
+        '''
+        
     } 
     }
 def runBackend() { 
