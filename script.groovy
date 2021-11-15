@@ -25,7 +25,6 @@ def runFrontend() {
             npm init -y
             yarn run
             yarn install
-            yarn webpack --config webpack.dev.js
         '''
         
     } 
