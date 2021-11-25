@@ -30,11 +30,11 @@ def runFrontend() {
         
     } 
     }
-def runBackend() { 
-    echo 'executing gradle...'
-        sh './gradlew -v '
-    // for some unexplainable the gradle does not setup
-    }
+// def runBackend() { 
+//     echo 'executing gradle...'
+//         sh './gradlew -v '
+//     // for some unexplainable the gradle does not setup
+//     }
 
 return this
 
