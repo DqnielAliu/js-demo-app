@@ -45,13 +45,13 @@ pipeline {
                 }
             }
         }
-        // stage("run Frontend") {
-        //     steps {
-        //         script {
-        //             gv.runFrontend()
-        //         }
-        //     }
-        // }
+        stage("run Frontend") {
+            steps {
+                script {
+                    gv.runFrontend()
+                }
+            }
+        }
         // The code below is commented out bcos I don't have gradle installed
         // stage("run Backend") {
         //     steps {
@@ -62,65 +62,65 @@ pipeline {
         // }
     }   
 }
-pipeline {
-    agent any
-    environment {
-        DOCKER_IMAGE_NAME = "ptran32/nodejs-express-app"
-    }
+// pipeline {
+//     agent any
+//     environment {
+//         DOCKER_IMAGE_NAME = "ptran32/nodejs-express-app"
+//     }
     
-    options {
-    skipDefaultCheckout(true)
-    }
+//     options {
+//     skipDefaultCheckout(true)
+//     }
 
-    stages {
-        stage('Clean Workspace') {
-            steps {
-            deleteDir()
-            }
-        }
-        stage('Git Clone Source') {
-            steps {
-                git url: 'https://github.com/ptran32/nodejs-express-app.git'
-            }
-        }
+//     stages {
+//         stage('Clean Workspace') {
+//             steps {
+//             deleteDir()
+//             }
+//         }
+//         stage('Git Clone Source') {
+//             steps {
+//                 git url: 'https://github.com/ptran32/nodejs-express-app.git'
+//             }
+//         }
 
-        stage('Test and Build Docker Image') {
-            when {
-                branch 'master'
-                }
-            steps {
-                script {
-                    env.GIT_COMMIT_REV = sh (script: 'git log -n 1 --pretty=format:"%h"', returnStdout: true)
-                    customImage = docker.build("${DOCKER_IMAGE_NAME}:${GIT_COMMIT_REV}-${env.BUILD_NUMBER}")
-                }
-            }
-        }
-        stage('Push Docker Image') {
-            when {
-                branch 'master'
-            }
-            steps {
-                script {
-                    docker.withRegistry('https://registry.hub.docker.com', 'dockerhub_creds') {
-                        customImage.push("${GIT_COMMIT_REV}-${env.BUILD_NUMBER}")
-                        customImage.push("latest")
-                    }
-                }
-            }
-        }
-        stage('Deploy to kubernetes cluster') {
-            when {
-                branch 'master'
-            }
-            steps {
-                kubernetesDeploy(
-                    kubeconfigId: 'kubeconfig',
-                    configs: 'deploy/*.yml',
-                    enableConfigSubstitution: true
-                )
-            }
-        }
-    }
-}
+//         stage('Test and Build Docker Image') {
+//             when {
+//                 branch 'master'
+//                 }
+//             steps {
+//                 script {
+//                     env.GIT_COMMIT_REV = sh (script: 'git log -n 1 --pretty=format:"%h"', returnStdout: true)
+//                     customImage = docker.build("${DOCKER_IMAGE_NAME}:${GIT_COMMIT_REV}-${env.BUILD_NUMBER}")
+//                 }
+//             }
+//         }
+//         stage('Push Docker Image') {
+//             when {
+//                 branch 'master'
+//             }
+//             steps {
+//                 script {
+//                     docker.withRegistry('https://registry.hub.docker.com', 'dockerhub_creds') {
+//                         customImage.push("${GIT_COMMIT_REV}-${env.BUILD_NUMBER}")
+//                         customImage.push("latest")
+//                     }
+//                 }
+//             }
+//         }
+//         stage('Deploy to kubernetes cluster') {
+//             when {
+//                 branch 'master'
+//             }
+//             steps {
+//                 kubernetesDeploy(
+//                     kubeconfigId: 'kubeconfig',
+//                     configs: 'deploy/*.yml',
+//                     enableConfigSubstitution: true
+//                 )
+//             }
+//         }
+//     }
+// }
 
  
