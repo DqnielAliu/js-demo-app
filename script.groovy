@@ -20,7 +20,7 @@ def deployApp() {
 
 def runFrontend() {
     echo 'Executing frontend...'
-    nodejs('NodeJS_17.10'){
+    nodejs('NodeJS_10.17'){
         sh '''
             npm init -y
             yarn run
