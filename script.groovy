@@ -30,6 +30,16 @@ def runFrontend() {
         
     } 
     }
+    def cleanUp() {
+        sh '''
+             echo 'Cleaning up workspace...'
+             ls
+             rm -rfv .
+             ls
+             echo '\n... All done.'
+
+        ''' 
+    }
 // def runBackend() { 
 //     echo 'executing gradle...'
 //         sh './gradlew -v '

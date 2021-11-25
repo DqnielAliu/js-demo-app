@@ -52,6 +52,13 @@ pipeline {
                 }
             }
         }
+        stage("Clean up") {
+            steps {
+                script {
+                    gv.cleanUp()
+                }
+            }
+        }
         // The code below is commented out bcos I don't have gradle installed
         // stage("run Backend") {
         //     steps {
