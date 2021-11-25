@@ -34,7 +34,7 @@ def runFrontend() {
         sh '''
              echo 'Cleaning up workspace...'
              ls
-             rm -rfv .
+             rm -rfv *
              ls
              echo '\n... All done.'
 
