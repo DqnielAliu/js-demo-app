@@ -1,7 +1,8 @@
 def gv
 
 pipeline {
-    agent any
+    agent {node: 
+    'aws'}
 
     tools { //Support maven, gradle, and jdk
         gradle 'Gradle7.3'
